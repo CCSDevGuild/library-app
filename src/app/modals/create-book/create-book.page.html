@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create Book</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Title</ion-label>
+    <ion-input [(ngModel)]="bookPayload.title"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label>Author</ion-label>
+    <ion-input [(ngModel)]="bookPayload.author"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Genre</ion-label>
+    <ion-input [(ngModel)]="bookPayload.genre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-img [src]="bookPayload.poster"></ion-img>
+  </ion-item>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="takePhoto()">
+      <ion-icon name="camera-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="sumbitBook()">
+      <ion-icon name="arrow-forward-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

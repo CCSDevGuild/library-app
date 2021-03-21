@@ -1,17 +1,39 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title>Book List</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="createBookClicked()" fill="solid" color="primary">
+        Create Book
+        <ion-icon slot="end" name="pencil-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-card *ngFor="let book of books">
+      <div>
+        <img [src]="book.poster">
+      </div>
+      <ion-card-header>
+        <ion-card-subtitle>{{book.author}}</ion-card-subtitle>
+        <ion-card-title>{{book.title}}</ion-card-title>
+      </ion-card-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+      <ion-card-content>
+        <div class="book-content">
+          <span>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est labore quo officia?
+          </span>
+
+          <ion-button (click)="presentDeleteBookPrompt(book.id)" color="danger">
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
+
 </ion-content>
